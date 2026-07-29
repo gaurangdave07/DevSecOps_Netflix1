@@ -265,9 +265,9 @@ Add screenshots here
 
 - SonarQube-dashboard<img width="1070" height="825" alt="jenkins" src="https://github.com/user-attachments/assets/920e051e-40b9-4390-9f18-4a41f6860e46" />
 
-- Trivy Report<img width="1873" height="814" alt="jenkins-dashboard" src="https://github.com/user-attachments/assets/d0bf03d8-8c70-4085-ba9d-36b1d7343c74" />
+- Trivy Report<img width="1127" height="752" alt="trivy_dashboard" src="https://github.com/user-attachments/assets/d6b18051-9d8b-4331-9acf-c47c469f8228" />
 
-- Jenkins-pipeline<img width="1127" height="752" alt="trivy_dashboard" src="https://github.com/user-attachments/assets/d6b18051-9d8b-4331-9acf-c47c469f8228" />
+- Jenkins-pipeline<img width="1873" height="814" alt="jenkins-dashboard" src="https://github.com/user-attachments/assets/e417951b-b7a8-4d8f-804b-be8fde3113e1" />
 
 - Docker Hub Repository<img width="1897" height="959" alt="docker-hub" src="https://github.com/user-attachments/assets/ca3e2866-7bbe-4d32-b21d-9640e030bf60" />
 

@@ -259,7 +259,8 @@ Jenkins automatically sends an email after every pipeline execution containing
 
 Add screenshots here
 
-- Jenkins Dashboard
+- EC2 Instance<img width="1121" height="776" alt="aws_ec2" src="https://github.com/user-attachments/assets/d5e2bc10-70fd-415f-95dc-1b456d5ab40b" />
+
 - SonarQube Report
 - OWASP Report
 - Trivy Report

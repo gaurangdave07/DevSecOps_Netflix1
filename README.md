@@ -261,14 +261,24 @@ Add screenshots here
 
 - EC2 Instance<img width="1121" height="776" alt="aws_ec2" src="https://github.com/user-attachments/assets/d5e2bc10-70fd-415f-95dc-1b456d5ab40b" />
 
-- SonarQube Report
-- OWASP Report
-- Trivy Report
-- Docker Hub Repository
-- Kubernetes Pods
-- Prometheus Dashboard
-- Grafana Dashboard
-- Running Netflix Application
+- Jenkins<img width="1121" height="858" alt="sonarqube" src="https://github.com/user-attachments/assets/8b8ad272-20de-4285-a075-33da51f39b50" />
+
+- SonarQube-dashboard<img width="1070" height="825" alt="jenkins" src="https://github.com/user-attachments/assets/920e051e-40b9-4390-9f18-4a41f6860e46" />
+
+- Trivy Report<img width="1873" height="814" alt="jenkins-dashboard" src="https://github.com/user-attachments/assets/d0bf03d8-8c70-4085-ba9d-36b1d7343c74" />
+
+- Jenkins-pipeline<img width="1127" height="752" alt="trivy_dashboard" src="https://github.com/user-attachments/assets/d6b18051-9d8b-4331-9acf-c47c469f8228" />
+
+- Docker Hub Repository<img width="1897" height="959" alt="docker-hub" src="https://github.com/user-attachments/assets/ca3e2866-7bbe-4d32-b21d-9640e030bf60" />
+
+- Prometheus Dashboard<img width="1139" height="811" alt="promethious-dashboard" src="https://github.com/user-attachments/assets/225d0d6d-8757-41c2-910e-cd0cef0b8977" />
+
+- Grafana Dashboard<img width="1080" height="931" alt="netflix_web" src="https://github.com/user-attachments/assets/5470e349-e475-4a80-9cf6-65e637e56313" />
+
+-All-dashboard<img width="1903" height="990" alt="all-dashboard" src="https://github.com/user-attachments/assets/faf8716f-e9e3-4975-a6bc-33bcbab60e1d" />
+
+
+- Running Netflix Application<img width="1125" height="882" alt="grafana-dashboard" src="https://github.com/user-attachments/assets/ce5bc30e-ee61-4909-b955-8a95d270ecb1" />
 
 ---
 

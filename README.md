@@ -1,95 +1,342 @@
-<div align="center">
-  <a href="http://netflix-clone-with-tmdb-using-react-mui.vercel.app/">
-    <img src="./public/assets/netflix-logo.png" alt="Logo" width="100" height="32">
-  </a>
+# 🎬 DevSecOps Netflix Clone CI/CD Pipeline
 
-  <h3 align="center">Netflix Clone</h3>
+A complete **DevSecOps End-to-End CI/CD Pipeline** for deploying a Netflix Clone application using **Jenkins, SonarQube, OWASP Dependency Check, Trivy, Docker, Kubernetes, Prometheus, and Grafana** on **AWS EC2**.
 
-  <p align="center">
-    <a href="https://netflix-clone-react-typescript.vercel.app/">View Demo</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Request Feature</a>
-  </p>
-</div>
+This project demonstrates modern DevSecOps practices by integrating security scanning, automated testing, containerization, monitoring, and continuous deployment.
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#prerequests">Prerequests</a>
-    </li>
-    <li>
-      <a href="#which-features-this-project-deals-with">Which features this project deals with</a>
-    </li>
-    <li><a href="#third-party-libraries-used-except-for-react-and-rtk">Third Party libraries used except for React and RTK</a></li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-  </ol>
-</details>
+---
 
-<br />
+## 📌 Project Architecture
 
-<div align="center">
-  <img src="./public/assets/home-page.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Home Page</p>
-  <img src="./public/assets/mini-portal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Mini Portal</p>
-  <img src="./public/assets/detail-modal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Detail Modal</p>
-  <img src="./public/assets/grid-genre.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Grid Genre Page</p>
-  <img src="./public/assets/watch.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Watch Page with customer contol bar</p>
-</div>
-
-## Prerequests
-
-- Create an account if you don't have on [TMDB](https://www.themoviedb.org/).
-  Because I use its free API to consume movie/tv data.
-- And then follow the [documentation](https://developers.themoviedb.org/3/getting-started/introduction) to create API Key
-- Finally, if you use v3 of TMDB API, create a file named `.env`, and copy and paste the content of `.env.example`.
-  And then paste the API Key you just created.
-
-## Which features this project deal with
-
-- How to create and use [Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
-- How to use [Context](https://reactjs.org/docs/context.html) and its provider
-- How to use lazy and Suspense for [Code-Splitting](https://reactjs.org/docs/code-splitting.html)
-- How to use a new [lazy](https://reactrouter.com/en/main/route/lazy) feature of react-router to reduce bundle size.
-- How to use data [loader](https://reactrouter.com/en/main/route/loader) of react-router, and how to use redux dispatch in the loader to fetch data before rendering component.
-- How to use [Portal](https://reactjs.org/docs/portals.html)
-- How to use [Fowarding Refs](https://reactjs.org/docs/forwarding-refs.html) to make components reusuable
-- How to create and use [HOC](https://reactjs.org/docs/higher-order-components.html)
-- How to customize default theme of [MUI](https://mui.com/)
-- How to use [RTK](https://redux-toolkit.js.org/introduction/getting-started)
-- How to use [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
-- How to customize default classname of [MUI](https://mui.com/material-ui/experimental-api/classname-generator)
-- Infinite Scrolling(using [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API))
-- How to make awesome carousel using [slick-carousel](https://react-slick.neostack.com)
-
-## Third Party libraries used except for React and RTK
-
-- [react-router-dom@v6.9](https://reactrouter.com/en/main)
-- [MUI(Material UI)](https://mui.com/)
-- [framer-motion](https://www.framer.com/docs/)
-- [video.js](https://videojs.com)
-- [react-slick](https://react-slick.neostack.com/)
-
-## Install with Docker
-
-```sh
-docker build --build-arg TMDB_V3_API_KEY=your_api_key_here -t netflix-clone .
-
-docker run --name netflix-clone-website --rm -d -p 80:80 netflix-clone
+```text
+                    GitHub
+                       │
+                       ▼
+                 Jenkins Pipeline
+                       │
+     ┌─────────────────┼──────────────────┐
+     │                 │                  │
+     ▼                 ▼                  ▼
+ SonarQube      OWASP Dependency      Trivy Scan
+  (SAST)            Check (SCA)      (Container Scan)
+     │                 │                  │
+     └─────────────────┼──────────────────┘
+                       ▼
+                 Docker Build
+                       ▼
+              Push to Docker Hub
+                       ▼
+             Kubernetes Deployment
+                       ▼
+              Netflix Clone Running
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+    Prometheus                 Grafana
+                       │
+                 Email Notification
 ```
 
-## Todo
+---
 
-- Make the animation of video card portal more similar to Netflix.
-- Improve performance. I am using `context` and `provider` but all components subscribed to the context's value are re-rendered. These re-renders happen even if the part of the value is not used in render of the component. there are [several ways](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) to prevent the re-renders from these behaviours. In addition to them, there may be several performance issues.
-- Replace bundler([Vite](https://vitejs.dev/guide)) with [Turbopack](https://turbo.build/pack/docs/why-turbopack). Turbopack is introduced in Next.js conf recently. It's very fast but it's nor ready to use right now. it just support Next.js, and they plan to support all others as soon as possible. so if it's ready to use, replace [Vite](https://vitejs.dev/guide) with [Turbopack](https://turbo.build/pack/docs/why-turbopack).
-- Add accessibilities for better UX.
-- Add Tests.
+# 🚀 Features
+
+- ✅ End-to-End DevSecOps Pipeline
+- ✅ Jenkins CI/CD Automation
+- ✅ GitHub Integration
+- ✅ SonarQube Static Code Analysis (SAST)
+- ✅ OWASP Dependency Check (SCA)
+- ✅ Trivy Filesystem & Docker Image Scanning
+- ✅ Docker Containerization
+- ✅ Docker Hub Image Repository
+- ✅ Kubernetes Deployment
+- ✅ Prometheus Monitoring
+- ✅ Grafana Dashboards
+- ✅ Jenkins Email Notifications
+- ✅ AWS EC2 Deployment
+
+---
+
+# 🛠️ Tech Stack
+
+| Category | Technology |
+|-----------|------------|
+| Frontend | React.js |
+| Build Tool | Vite |
+| CI/CD | Jenkins |
+| Source Code | GitHub |
+| Static Analysis | SonarQube |
+| Dependency Scan | OWASP Dependency Check |
+| Vulnerability Scan | Trivy |
+| Containerization | Docker |
+| Container Registry | Docker Hub |
+| Orchestration | Kubernetes |
+| Monitoring | Prometheus |
+| Visualization | Grafana |
+| Cloud | AWS EC2 |
+| OS | Ubuntu 22.04 |
+
+---
+
+# 📂 Project Structure
+
+```
+Netflix/
+│
+├── src/
+├── public/
+├── Dockerfile
+├── package.json
+├── nginx.conf
+├── Jenkinsfile
+├── Kubernetes/
+│   ├── deployment.yaml
+│   └── service.yaml
+└── README.md
+```
+
+---
+
+# ⚙️ CI/CD Pipeline
+
+The Jenkins pipeline performs the following stages:
+
+1. Checkout Source Code
+2. Install Dependencies
+3. SonarQube Analysis
+4. Quality Gate Validation
+5. OWASP Dependency Check
+6. Trivy Filesystem Scan
+7. Docker Image Build
+8. Docker Image Scan
+9. Push Image to Docker Hub
+10. Deploy Docker Container
+11. Deploy to Kubernetes
+12. Send Email Notification
+
+---
+
+# 🔒 Security Scanning
+
+### SonarQube
+
+- Static Application Security Testing (SAST)
+- Code Smells
+- Bugs
+- Vulnerabilities
+- Code Coverage
+
+---
+
+### OWASP Dependency Check
+
+- Detect vulnerable libraries
+- Generate Dependency Report
+- CVE Analysis
+
+---
+
+### Trivy
+
+Filesystem Scan
+
+```bash
+trivy fs .
+```
+
+Docker Image Scan
+
+```bash
+trivy image <docker-image>
+```
+
+---
+
+# 🐳 Docker
+
+## Build Image
+
+```bash
+docker build -t netflix .
+```
+
+## Run Container
+
+```bash
+docker run -d -p 8081:80 netflix
+```
+
+Application URL
+
+```
+http://<Public-IP>:8081
+```
+
+---
+
+# ☸️ Kubernetes Deployment
+
+Deploy Application
+
+```bash
+kubectl apply -f Kubernetes/deployment.yaml
+kubectl apply -f Kubernetes/service.yaml
+```
+
+Verify
+
+```bash
+kubectl get all
+```
+
+---
+
+# 📊 Monitoring
+
+## Prometheus
+
+Collects metrics from
+
+- Jenkins
+- Node Exporter
+- Kubernetes Nodes
+
+Default Port
+
+```
+9090
+```
+
+---
+
+## Grafana
+
+Visualizes
+
+- CPU Usage
+- Memory Usage
+- Disk Usage
+- Jenkins Metrics
+- Kubernetes Metrics
+
+Default Port
+
+```
+3000
+```
+
+Recommended Dashboards
+
+- 1860 (Node Exporter)
+- 9964 (Jenkins)
+
+---
+
+# 📧 Email Notification
+
+Jenkins automatically sends an email after every pipeline execution containing
+
+- Build Status
+- Build Number
+- Console Log
+- Trivy Reports
+- Dependency Reports
+
+---
+
+# ☁️ AWS Infrastructure
+
+| Server | Purpose |
+|---------|----------|
+| Jenkins Server | CI/CD |
+| Monitoring Server | Prometheus + Grafana |
+| Kubernetes Master | Control Plane |
+| Kubernetes Worker | Application Deployment |
+
+---
+
+# 📸 Screenshots
+
+Add screenshots here
+
+- Jenkins Dashboard
+- SonarQube Report
+- OWASP Report
+- Trivy Report
+- Docker Hub Repository
+- Kubernetes Pods
+- Prometheus Dashboard
+- Grafana Dashboard
+- Running Netflix Application
+
+---
+
+# 🚀 Getting Started
+
+Clone Repository
+
+```bash
+git clone https://github.com/gaurangdave07/Netflix.git
+```
+
+Move into project
+
+```bash
+cd Netflix
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run locally
+
+```bash
+npm run dev
+```
+
+Build Production
+
+```bash
+npm run build
+```
+
+---
+
+# 📈 Future Improvements
+
+- GitHub Actions Pipeline
+- Helm Charts
+- ArgoCD GitOps
+- Terraform Infrastructure
+- AWS EKS Deployment
+- HashiCorp Vault Integration
+- Slack Notifications
+- Kubernetes Ingress
+- SSL with Let's Encrypt
+
+---
+
+# 👨‍💻 Author
+
+**Gaurang Dave**
+
+📧 Email: Your Email
+
+💼 LinkedIn: https://linkedin.com/in/your-profile
+
+🐙 GitHub: https://github.com/gaurangdave07
+
+---
+
+# ⭐ Support
+
+If you found this project helpful, please give it a ⭐ on GitHub!
+
+---
+
+# 📜 License
+
+This project is for educational and learning purposes.

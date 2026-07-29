@@ -269,8 +269,6 @@ Add screenshots here
 
 - Jenkins-pipeline<img width="1873" height="814" alt="jenkins-dashboard" src="https://github.com/user-attachments/assets/e417951b-b7a8-4d8f-804b-be8fde3113e1" />
 
-- Docker Hub Repository<img width="1897" height="959" alt="docker-hub" src="https://github.com/user-attachments/assets/ca3e2866-7bbe-4d32-b21d-9640e030bf60" />
-
 - Prometheus Dashboard<img width="1139" height="811" alt="promethious-dashboard" src="https://github.com/user-attachments/assets/225d0d6d-8757-41c2-910e-cd0cef0b8977" />
 
 - Grafana Dashboard<img width="1125" height="882" alt="grafana-dashboard" src="https://github.com/user-attachments/assets/ce5bc30e-ee61-4909-b955-8a95d270ecb1" />
@@ -332,11 +330,10 @@ npm run build
 
 # 👨‍💻 Author
 
-**Gaurang Dave**
+**Gaurang Shrimali**
 
-📧 Email: Your Email
 
-💼 LinkedIn: https://linkedin.com/in/your-profile
+💼 LinkedIn: https://www.linkedin.com/in/gaurang-shrimali-72364a279/
 
 🐙 GitHub: https://github.com/gaurangdave07
 
